@@ -1,13 +1,13 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { ISteps } from './types';
+import type { ISteps } from './types';
 
 
 export async function createStep(stepObj: ISteps, tourName: string) {
 	const { file, description, searchString, title, offset = 0 } = stepObj;
 	if (!file || !searchString) return stepObj;
 
-	const filePath = path.resolve(__dirname, '..', file);
+	const filePath = path.resolve(__dirname, '../..', file);
 	const fileContent = await fs.readFile(filePath, 'utf8');
 	const lines = fileContent.split('\n');
 

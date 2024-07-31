@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { slugify } from './utils';
 import { rocketchatOnboarding, understandingMonorepo, repositoryOverview, messageSentClient, messageSentServer, createEndPoint, createDBModel, useDBModel, services, addNewService, createNewPackage } from './tours/index';
-import { ITours } from './types';
+import type { ITours } from './types';
 
 /*
  * Creates a new directory called .tours in the root directory of the project.
@@ -11,7 +11,7 @@ import { ITours } from './types';
 */
 async function main() {
 	try {
-		const baseDir = path.resolve(__dirname, '..');
+		const baseDir = path.resolve(__dirname, '../..');
 		const newDir = path.join(baseDir, '.tours');
 		await fs.mkdir(newDir, { recursive: true });
 		const toursObjArray = await Promise.all([

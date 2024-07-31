@@ -1,4 +1,4 @@
-import { ISteps, ITours } from '../types';
+import type { ISteps, ITours } from '../types';
 import { createStep } from '../utils';
 
 export default async function createEndPoint(): Promise<ITours> {
