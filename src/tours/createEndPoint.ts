@@ -9,7 +9,7 @@ export default async function createEndPoint(): Promise<ITours> {
 			file: 'apps/meteor/app/api/server/index.ts',
 			description:
 				"## How to Create an Endpoint.\n\n Rocket.Chat offers two methods for creating endpoints: REST API and Meteor Methods(Realtime API). These methods allow developers to extend Rocket.Chat's functionality by defining custom endpoints that can be accessed externally or internally.\n\n In this guide, we will explore creating endpoints using the REST API and Meteor Methods in Rocket.Chat. We'll discuss their differences, use cases, and provide step-by-step instructions for implementation. By learning how to create endpoints, you'll be able to integrate external services, expose specific functionalities, and perform custom operations.\n\nNote: all REST API's are located in [apps/meteor/app/api/server](./apps/meteor/app/api/server/index.ts) folder while meteor methods can be found all around project, which can be identified by the folder structure **/server/methods**",
-			searchString: "export { API, APIClass, defaultRateLimiterOptions } from './api';",
+			searchString: "export",
 		},
 		{
 			title: "REST API",
@@ -37,15 +37,14 @@ export default async function createEndPoint(): Promise<ITours> {
 			file: 'apps/meteor/app/api/server/api.ts',
 			description:
 				"## CreateApi\n\n### This function helps in creating Api route for example api/v1/abc\n\n```\nAPI.v1.addRoute()\n```\n### - v1 uses instance of APIClass and The APIClass has property addRoute which helps in adding route to Server",
-			searchString: 'const createApi = function _createApi(options: { version?: string } = {}): APIClass {',
+			searchString: 'const createApi',
 		},
 		{
 			title: "Calling REST endpoint",
 			file: 'apps/meteor/app/api/server/v1/chat.ts',
 			description:
 				"## Calling REST endpoint\n### Let us try to call an REST Endpoint for sending message\n### For this you need \n- Personal Access Token\n- UserId\n- Channel/Room Id\n### - Create a Personal Access Tokens for user authentication. -> **[Get Token here](http://localhost:3000/account/tokens)** (*Note* - You must save it because you wont be able to see it again).\n\n### - To get User-Id go to admin settings, search for users(or http://localhost:3000/admin/users) select your account and copy unique user id from URL (http://localhost:3000/admin/users/info/u3y2jXw5ayckPciE9) here we have *u3y2jXw5ayckPciE9* as user id, Try finding yours\n\n### - Open another terminal and use the following command\n\n```sh\ncurl -H \"X-Auth-Token: 'ENTER_YOUR_TOKEN' \" \\\n      -H \"X-User-Id: 'ENTER_YOUR_USERID' \" \\\n      -H \"Content-type:application/json\" \\\n      http://localhost:3000/api/v1/chat.sendMessage \\\n      -d '{\"message\":{\"rid\":\"GENERAL\", \"msg\":\"Hello From Rocket Chat\"}}'\n```\n- You will get a success response once your request is successful and vice versa\n\n### You can also use postman or any other API TESTER instead of the terminal\n\n![](https://res.cloudinary.com/dty2rgx6f/image/upload/v1721465791/Codetours/Onboarding/401a1627-10bb-441f-831d-375817c375e8.png)\n\n### Similarly you can also create your own REST Endpoint with unique route name and define what it needs to do by adding different funtionalities in it. ",
-			searchString: 'one channel whereas the other one allows for sending to more than one channel at a time',
-			offset: 2
+			searchString: "'chat.sendMessage'",
 		},
 		{
 			title: "Meteor Methods(RealTime API)",
@@ -66,14 +65,14 @@ export default async function createEndPoint(): Promise<ITours> {
 			file: 'apps/meteor/app/lib/server/methods/sendMessage.ts',
 			description:
 				"## Using ServerMethod\n\n#### We created sendMessage endpoint with help of interface ServerMethods and here we have a Meteor method and we are defining what this Endpoint will do, for example in this case it is sending message\n\n- **[Documentation](https://developer.rocket.chat/docs/method-calls) for Method Calls**\n\n```\nMeteor.methods<ServerMethods>({\n\tsendMessage(message) { \n // Code for what endpoint should do\n },\n});\n\n```\n\nThis api endpoint can be called by this format\n```\nawait sdk.call('sendMessage',.....);\n```\n\nwhich we will see it in the next step",
-			searchString: 'async sendMessage(message, previewUrls) {',
+			searchString: 'async sendMessage(',
 		},
 		{
 			title: "Calling Realtime API endpoints",
 			file: 'apps/meteor/client/lib/chats/flows/sendMessage.ts',
 			description:
 				"## Calling Realtime API endpoints\n\n### The sdk.call method is used to call meteor method and it takes route name and message as argument, Rocket chat has created and SDK for managing meteor calls",
-			searchString: "await sdk.call('sendMessage', message, previewUrls);",
+			searchString: "await sdk.call('sendMessage'",
 		},
 
 		{
