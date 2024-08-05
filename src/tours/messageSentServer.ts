@@ -28,7 +28,7 @@ export default async function messageSentServer(): Promise<ITours> {
 		},
 		{
 			title: 'SendMessage',
-			file: 'papps/meteor/app/ui/client/lib/ChatMessages.ts',
+			file: 'apps/meteor/app/ui/client/lib/ChatMessages.ts',
 			description:
 				'## SendMessage -\n\n### Above we have a constructor and here in this.flows we are calling *sendMessage.bind(this,this)* The sendMessage is a function which further makes the meteor call for sending Message Data.',
 			searchString: 'sendMessage: sendMessage.bind(this, this)',
