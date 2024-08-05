@@ -22,7 +22,7 @@ export default async function messageSentClient(): Promise<ITours> {
 			file: baseDir + '/body/RoomBody.tsx',
 			description:
 				"## The Chat Room/Channel\n\n- **RoomBody.tsx** is a file that handles the rendering of the Chat Room/Channel on the client side. It brings together multiple components to enable user interaction and communication within the chat environment.\n\n- In this file, there are various methods implemented. Let's specifically examine the process of sending a message through the **MessageComposer** component.\n#### **Additionally, the code in \"RoomBody.tsx\" includes logic for performing various actions related to the chat functionality. These actions might include *sending messages*, *editing* or *deleting* messages, *managing user permissions*, and handling user interactions within the chat environment.**",
-			searchString: 'const RoomBody = (): ReactElement =>',
+			searchString: 'const RoomBody',
 		},
 		{
 			title: 'Chat/Room Layout',
@@ -44,14 +44,14 @@ export default async function messageSentClient(): Promise<ITours> {
 			file: baseDir + '/composer/ComposerContainer.tsx',
 			description:
 				"### The Composer Container\n\n- In the \"ComposerContainer\" component, different composers are rendered based on specific conditions:\n\n- For omnichannel rooms, the component renders the \"ComposerOmnichannel\" composer.\n   - If the chat room is a VoIP room, the component renders the \"ComposerVoIP\" composer.\n   - In the case of federated rooms, the component renders the \"ComposerFederation\" composer.\n   - For anonymous users, the component renders the \"ComposerAnonymous\" composer.\n   - If the chat room is read-only, the component renders the \"ComposerReadOnly\" composer.\n   - Lastly, if there are any block-related restrictions, such as blocked users or blocking others, the component renders the \"ComposerBlocked\" composer.\n\n    **1. Omnichannel**\n    ```\n        <ComposerOmnichannel {...props} />\n    ```\n    **2. VoIp**\n    ```\n        <ComposerVoIP />\n    ```\n    **3. Federation**\n    ```\n        <ComposerFederation room={room} {...props} />\n    ```\n    **4. Anonymous Users**\n    ```\n        <ComposerAnonymous />\n    ```\n    **5. Read Only**\n    ```\n        <ComposerReadOnly />\n    ```\n    **6. Composer Blocked**\n    ```\n        <ComposerBlocked />\n    ```",
-			searchString: 'const ComposerContainer = ({ children, ...props }: ComposerMessageProps): ReactElement',
+			searchString: 'const ComposerContainer',
 		},
 		{
 			title: 'ComposerMessage Component',
 			file: baseDir + '/composer/ComposerContainer.tsx',
 			description:
 				"## ComposerMessage Component\n### And at the end we have ComposerMessage which is responsible for rendering MessageBox(The Text composer at the footer of Channel/Room)",
-			searchString: '<ComposerMessage readOnly={room.ro} {...props} />',
+			searchString: '<ComposerMessage',
 		},
 		{
 			title: 'MessageBox Component',
@@ -59,14 +59,14 @@ export default async function messageSentClient(): Promise<ITours> {
 			description:
 				"## MessageBox Component\n\n- At the bottom of the code, there is a \"MessageBox\" component, which represents the actual chat message box. Its presence is crucial for the proper functioning of the Composer. If you were to comment out or remove the \"MessageBox\" component and run the server, you would observe that the Composer functionality would no longer be available.\n\n- The \"MessageBox\" component plays a pivotal role in enabling users to compose and send messages within the chat interface. It provides the necessary user interface elements, such as input fields and buttons, to facilitate message composition and submission.",
 			searchString:
-				'<MessageBox readOnly={readOnly ?? false} key={room._id} tmid={tmid} {...composerProps} showFormattingTips={true} {...props} />',
+				'<MessageBox ',
 		},
 		{
 			title: 'Message Box',
 			file: baseDir + '/composer/messageBox/MessageBox.tsx',
 			description:
 				"## The Message Box\n\n#### This file serves as the implementation of the Message Composer component, where you can explore and analyze how the code functions. By examining the code in this file, you can gain a better understanding of its inner workings.\n\n\n#### The Message Composer component receives several props, *\"tmid\"* (thread ID), and *\"onSend\"* (handler for sending messages), among others. These props provide necessary data and functionality for the composer to operate effectively.\n\n\n#### By inspecting and experimenting with the code, you can gain insights into how different aspects of the Message Composer are implemented and how they interact with other components and functions.\n\n- The MessageBox is using MessageBoxProps type for defining its type\n```\ntype MessageBoxProps = {tmid?: IMessage['_id']; ...};\nconst MessageBox = ({tmid,onSend,onJoin ...}: MessageBoxProps): ReactElement => \n```",
-			searchString: 'const MessageBox',
+			searchString: 'const MessageBox = ({',
 		},
 		{
 			title: 'Sending Message',
@@ -96,14 +96,14 @@ export default async function messageSentClient(): Promise<ITours> {
 			file: baseDir + '/composer/messageBox/MessageBox.tsx',
 			description:
 				"## handleSendMessage Function\n\n- This is the function which sends messages further, it Gets text from chat.composer.text where chat is actully using useChat() which is coming from [ChatAPI](./apps/meteor/client/lib/chats/ChatAPI.ts) consisting of multiple functions.\n\n### The handleSendMessage function is responsible for processing and sending the message to the intended recipients. It performs the following actions:\n\n1. Retrieves the content of the message entered by the user.\n2. Collects additional information needed for sending the message, such as the room/channel ID, sender details, and any associated metadata.\n3. Packages the message data into a suitable format for transmission.\n4. Initiates the process of sending the message, it goes through a **[WebSocket](https://www.wallarm.com/what/a-simple-explanation-of-what-a-websocket-is)** connection.\n5. The message is then transmitted to the server for further processing.\n6. The server handles the message, ensuring it is delivered to the specified room/channel and received by the intended recipients.\n7. Once the message is successfully sent, it may trigger updates to the chat interface, including displaying the sent message in the conversation history.\n\n- Here we have \n ```\n const chat = useChat(); // useChat is a Context using ChatAPI.\n const text = chat.composer?.text ?? ''; //Text is getting information from useChat Context.\n\n onSend?.({ // onSend was recieved as prop and hence we are returning with some value and a boolean tshow\n\t\t\tvalue: text,\n\t\t\ttshow,\n\t\t});\n ```\n",
-			searchString: 'const handleSendMessage = useMutableCallback(() => {',
+			searchString: 'const handleSendMessage =',
 		},
 		{
 			title: 'The onSend Prop',
 			file: baseDir + '/composer/ComposerMessage.tsx',
 			description:
 				"## The onSend Prop\n\n### In the MessageBox component, the composerProps are passed, and we receive several methods back, including the onSend method. The onSend method takes a value and additional parameters such as tshow, and it returns a promise.\n\n### Additionally, we utilize the useChat() hook to access various methods available in the ChatAPI. This allows us to perform actions related to chat functionality.\n\n#### By using the onSend method, we can trigger the sending of a message with the provided value. The tshow parameter might be used to display notifications or toasts related to the message sending process. The returned promise can be used to handle any asynchronous operations or to track the status of the message sending.\n\n### The useChat() hook provides access to methods like sendMessage() or other chat-related functions. These methods can be utilized to perform various actions within the chat interface, such as sending, retrieving, or deleting messages. \n\n```\nawait chat?.action.stop('typing');\n    const newMessageSent = await chat?.flows.sendMessage({ // Here the Text is sent to chat.flows.sendMessage \n\t    text,\n\t    tshow,\n    });\n\tif (newMessageSent) onSend?.();\n```",
-			searchString: 'const ComposerMessage = ({ tmid, readOnly, onSend, ...props }: ComposerMessageProps): ReactElement => {',
+			searchString: 'const ComposerMessage =',
 		},
 		{
 			title: 'OnSend Function',
