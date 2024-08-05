@@ -23,21 +23,21 @@ export default async function addNewService(): Promise<ITours> {
 			file: 'apps/meteor/server/services/room/service.ts',
 			description:
 				'## Create service - eg- RoomService\n\n### Here we have a class RoomService which has multiple functionalities in it.\n\n### We have a *create* method which returns Promise gets data from params and then performs multiple checks, Such as If user has Permission to create room or not, whether the user who is requesting to create room exists or not, and then at the end *createRoom()* function is returned which was imported above \n\n```\nasync create(uid: string, params: ICreateRoomParams): Promise<IRoom> {\n    const { type, name, members = [], readOnly, extraData, options } = params;\n    <!-- Operations -->\n    return createRoom(type, name, user.username, members, false, readOnly, extraData, options) as unknown as IRoom;\n}\n```',
-			searchString: 'async create(uid: string, params: ICreateRoomParams): Promise<IRoom> {',
+			searchString: 'async create(',
 		},
 		{
 			title: 'Direct message',
 			file: 'apps/meteor/server/services/room/service.ts',
 			description:
 				'### 2 - Direct message\n\n### Here we have a method createDirectMessage method which helps in one to one communication in a dedicated room where 2 people can communicate, This method takes 2 arguments which are to and from which returns a Promise as rid. \n\n### Then a basic check is performed to check whether both users exist or not then at the end we return a imported function createDirectMessage\n\n```\nasync createDirectMessage({ to, from }: { to: string; from: string }): Promise<{ rid: string }> {\n    <!-- Other operations such as searching for users -->\n    return this.createDirectMessageWithMultipleUsers([toUser.username], fromUser._id); // This calls another function createDirectMessageWithMultipleUsers\n}\n```',
-			searchString: 'async createDirectMessage({ to, from }: { to: string; from: string }): Promise<{ rid: string }> {',
+			searchString: 'async createDirectMessage(',
 		},
 		{
 			title: "Create Direct Message with Multiple Users",
 			file: 'apps/meteor/server/services/room/service.ts',
 			description:
 				'## Creating DirectMessage\n\n### In previous step createDirectMessageWithMultipleUsers function was called and few data were passed on such as to users and from user, in createDirectMessageWithMultipleUsers we expect String Array of Members.\n\n```\n\tasync createDirectMessageWithMultipleUsers(members: string[], creatorId: string): Promise<{ rid: string }> { // Gets a list of memebers and creators id\n\t\treturn createDirectMessage(members, creatorId); // return createDirectMessage function\n    }\n```\n\n### There are few more services and methods below, you can check them out',
-			searchString: 'sync createDirectMessageWithMultipleUsers(members: string[], creatorId: string): Promise<{ rid: string }> {',
+			searchString: 'async createDirectMessageWithMultipleUsers(',
 		}
 	]
 	const steps = await Promise.all(stepsArray.map(step => createStep(step, tourName))) as ISteps[];

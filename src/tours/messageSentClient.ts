@@ -111,7 +111,7 @@ export default async function messageSentClient(): Promise<ITours> {
 			description:
 				"## onSend Function\n\n#### The onSend function sends a new message by calling the chat?.flows.sendMessage() method from useChat Context. It passes the value and tshow parameters as properties of an object and awaits the promise to resolve. The resolved value is stored in the newMessageSent variable.\n\n```\n    const newMessageSent = await chat?.flows.sendMessage({ // Here chat.flows.sendMessage() is actually a property coming from ChatAPI. From here we are simply sending value to sendMessage property in ChatAPI\n        text,\n        tshow,\n\t});\n```\n",
 			searchString:
-				'onSend: async ({ value: text, tshow, previewUrls }: { value: string; tshow?: boolean; previewUrls?: string[] }): Promise<void> => {',
+				'onSend: async ({',
 		},
 	]
 	const steps = await Promise.all(stepsArray.map(step => createStep(step, tourName))) as ISteps[];

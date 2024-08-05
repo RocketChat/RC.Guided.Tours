@@ -17,7 +17,7 @@ export default async function messageSentServer(): Promise<ITours> {
 			description:
 				'## ChatAPI sendMessage\n\n#### Among many properties and functions present in ChatAPI here we have sendMessage.\n\n#### Note that sendMessage is *readonly* implying that it cannot be modified after initialization. Hence Implementing ChatAPI in any class would make it modification possible.\n\n```\n    readonly sendMessage: ({ text, tshow }: { text: string; tshow?: boolean }) => Promise<boolean>;\n```',
 			searchString:
-				'readonly sendMessage: ({ text, tshow }: { text: string; tshow?: boolean; previewUrls?: string[] }) => Promise<boolean>;',
+				'readonly sendMessage: ({',
 		},
 		{
 			title: ' Implementation of ChatAPI',
