@@ -61,7 +61,8 @@ Video
 
 ### Working Architecture
 
-Image
+![image](https://github.com/user-attachments/assets/f2a69f0b-9c40-4bc9-8b32-9eade1717ae6)
+
 
 - We are using a nested git architecture, where the child repository is git ignored by the parent repository and both have a seperate git history
 - `RC.Guided.Tours` is a standalone package which runs as a workspace in the main repository. 
