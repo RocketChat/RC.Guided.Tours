@@ -31,6 +31,7 @@ fi
 
 if [ ! -d ./RC.Guided.Tours ]; then
   git clone ${repolink}
+  yarn install
 fi
 
 cd RC.Guided.Tours
