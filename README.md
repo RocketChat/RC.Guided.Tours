@@ -16,6 +16,12 @@ code tours.sh
 ```bash
 #!/bin/bash
 
+node_version=$(node -v)
+if [[ $node_version != v14* ]]; then
+  echo "Use node.js version 14.x.x"
+  exit 1
+fi
+
 if [ ! -f ./turbo.json ]; then
   echo "Create this file at the same level as turbo.json"
   exit 1
@@ -31,13 +37,16 @@ fi
 
 if [ ! -d ./RC.Guided.Tours ]; then
   git clone ${repolink}
-  yarn install
 fi
 
 cd RC.Guided.Tours
-yarn build
-yarn tours
-cd ..
+
+if [ ! -d ./node_modules ]; then
+    npm install
+fi
+
+npm run build
+npm run tours
 ```
 
 - Give permissions to run the shell script
