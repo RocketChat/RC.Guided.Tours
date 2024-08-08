@@ -17,14 +17,14 @@ export default async function messageSentServer(): Promise<ITours> {
 			description:
 				'## ChatAPI sendMessage\n\n#### Among many properties and functions present in ChatAPI here we have sendMessage.\n\n#### Note that sendMessage is *readonly* implying that it cannot be modified after initialization. Hence Implementing ChatAPI in any class would make it modification possible.\n\n```\n    readonly sendMessage: ({ text, tshow }: { text: string; tshow?: boolean }) => Promise<boolean>;\n```',
 			searchString:
-				'readonly sendMessage: ({ text, tshow }: { text: string; tshow?: boolean; previewUrls?: string[] }) => Promise<boolean>;',
+				'readonly sendMessage: ({',
 		},
 		{
 			title: ' Implementation of ChatAPI',
 			file: 'apps/meteor/app/ui/client/lib/ChatMessages.ts',
 			description:
 				'## Implementation of ChatAPI\n\n#### Here *class ChatMessages implements ChatAPI* and above it we have a *type DeepWritable<T>* which removes readonly property from ChatAPI and This allows us to modify those properties\n',
-			searchString: 'export class ChatMessages implements ChatAPI {',
+			searchString: 'export class ChatMessages',
 		},
 		{
 			title: 'SendMessage',
@@ -66,14 +66,14 @@ export default async function messageSentServer(): Promise<ITours> {
 			file: 'apps/meteor/app/lib/server/methods/sendMessage.ts',
 			description:
 				'## Meteor.methods\n\n### In this code, we have defined a ServerMethods interface, which includes a route for the sendMessage method. When the sendMessage action is triggered, an API call is made to the route *api/v1/method.call/sendMessage*. ->\n```\nreturn executeSendMessage(uid, message)\n```\n\n#### This triggers a function *executeSendMessage()* below in a try block which is further responsible for operations',
-			searchString: 'async sendMessage(message, previewUrls) {',
+			searchString: 'async sendMessage(',
 		},
 		{
 			title: 'executeSendMessage function',
 			file: 'apps/meteor/app/lib/server/methods/sendMessage.ts',
 			description:
 				'## executeSendMessage\n\n### - Inside the *executeSendMessage* function, we receive the uid (user ID) and message as parameters. This function performs various operations related to the sendMessage action.\n\n### - One of the key operations is triggering the sendMessage() function, which takes the user, message, room, and a boolean value as parameters. This function is responsible for handling the process of sending the message. It may involve additional validations, processing the message content, interacting with the database, and performing any necessary actions related to sending messages.',
-			searchString: 'return await sendMessage(user, message, room, false, previewUrls);',
+			searchString: 'return await sendMessage(',
 		},
 		{
 			title: "Sending message to DB",
@@ -87,7 +87,7 @@ export default async function messageSentServer(): Promise<ITours> {
 			file: 'apps/meteor/app/lib/client/methods/sendMessage.ts',
 			description:
 				'## The Async sendMessage Api call\n\n### - As mentioned earlier, there are two Meteor methods for handling the sendMessage functionality and making API Call. The first method handles processing and validation of the message, while the second method addresses the delay in rendering the message on the frontend.\n\n### - The second Meteor method is designed to ensure instant display of the sent message. When the first method completes successfully, it triggers the execution of the second method in an asynchronous manner. This allows for near-real-time rendering of the message on the user interface, reducing any noticeable delay.\n\n### And in the end there is a similar callback as it was in previous step which helps in message rendering, The callback return IMessage object which is displayed to user\n\n### - By separating these two methods, the application can provide a smooth and responsive user experience. The initial processing and validation are performed without blocking the UI, and once that is completed, the message is promptly displayed to the user.\n\n### You Have now successfully sent Message from composer, Note that there is one more API to sendMessage Which is an REST API, Which is currently not being used, if it would be used in future this tour would be updated. Still you can manually sendMessage by making call here [RestAPI Docs](https://developer.rocket.chat/reference/api/rest-api/endpoints/chat-endpoints/send-message) using -curl command, you can go thorugh the DOCS and try sending message on your own',
-			searchString: 'async sendMessage(message) {',
+			searchString: 'async sendMessage(',
 		},
 	]
 	const steps = await Promise.all(stepsArray.map(step => createStep(step, tourName))) as ISteps[];

@@ -15,21 +15,21 @@ export default async function useDBModel(): Promise<ITours> {
 			file: 'apps/meteor/server/methods/loadHistory.ts',
 			description:
 				'## loadHistory Endpoint\n\n### Here We hava an meteor endpoint which takes rid, end, limit, ls, showThreadMessage as argument, This method is responsible for rendering older messages \n\n- You can go through the methods used below they are quiet easy to understand',
-			searchString: 'async loadHistory(rid, end, limit = 20, ls, showThreadMessages = true) {',
+			searchString: 'async loadHistory(',
 		},
 		{
 			title: "LoadMessageHistory() 1",
 			file: 'apps/meteor/server/methods/loadHistory.ts',
 			description:
 				'## The LoadMessageHistory \n\n### LoadMessageHistory function is called here and it takes userId, rid, end, limit, ls, showThreadMessages',
-			searchString: 'return loadMessageHistory({ userId: fromId, rid, end, limit, ls, showThreadMessages });',
+			searchString: 'return loadMessageHistory({ userId',
 		},
 		{
 			title: "LoadMessageHistory() 2",
 			file: 'apps/meteor/app/lib/server/functions/loadMessageHistory.ts',
 			description:
 				'## loadMessageHistory function\n\n### Here we import Messages and Rooms DB models from @rocket.chat/models and we will further use them in our function\n\n',
-			searchString: "import { Messages, Rooms } from '@rocket.chat/models';",
+			searchString: "import { Messages, Rooms",
 		},
 		{
 			title: "LoadMessageHistory() 3",
