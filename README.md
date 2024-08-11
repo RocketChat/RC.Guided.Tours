@@ -40,6 +40,7 @@ code tours.sh
 - Copy the following contents in it
 
 ```bash
+
 #!/bin/bash
 
 node_version=$(node -v)
@@ -53,6 +54,8 @@ if [ ! -f ./turbo.json ]; then
   exit 1
 fi
 
+if [ ! -d ./RC.Guided.Tours ]; then
+
 printf "Enter repository link:\n"
 read repolink
 
@@ -61,10 +64,8 @@ if [ -z "$repolink" ]; then
   echo "Using default repository link: ${repolink}\n"
 fi
 
-if [ ! -d ./RC.Guided.Tours ]; then
   git clone ${repolink}
 fi
-
 cd RC.Guided.Tours
 
 if [ ! -d ./node_modules ]; then
@@ -73,6 +74,7 @@ fi
 
 npm run build
 npm run tours
+
 ```
 
 - Give permissions to run the shell script
