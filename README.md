@@ -1,17 +1,32 @@
 # RC.Guided.Tours
 
 ##  Setup Instructions
+- Install [vscode](https://code.visualstudio.com/download), open [Rocket.Chat](https://github.com/RocketChat/Rocket.Chat) project in it and install the [CodeTours](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) extension
+
+
+![](https://github.com/user-attachments/assets/a8357fd8-23a5-4e9e-bc99-be5ae442ed48)
+- Open `.git/info/exclude`
+```bash
+code .git/info/exclude
+```
+- Add the following to the end of that file 
+```bash
+.tours
+RC.Guided.Tours
+tours.sh
+```
 - Create a file named `tours.sh` at the root directory of Rocket.Chat (at the same level as turbo.json)
 
 ```bash
 touch tours.sh
 ``` 
 
-- Open the file and copy the following
+- Open the file
 
 ```bash
 code tours.sh
 ```
+- Copy the following contents in it
 
 ```bash
 #!/bin/bash
@@ -59,11 +74,15 @@ chmod +x tours.sh
 ./tours.sh
 ```
 
-- You will be asked for repository linked, if you want to just see the tours and not contribute to it, keep it blank. 
-- If you want to contribute to code tours, enter the link of your forked repository. Then go into folder before making any further commits.
+- You will be asked for repository linked, if you want to just see the tours and not contribute to it, just press `Enter` (It will clone it from https://github.com/RocketChat/RC.Guided.Tours.git)
+
+- If you want to contribute to [RC.Guided.Tours](https://github.com/Sayan4444/RC.Guided.Tours), enter the link of your forked repository. (Example- https://github.com/Sayan4444/RC.Guided.Tours.git)
+
+- To perform any git actions related to [RC.Guided.Tours](https://github.com/Sayan4444/RC.Guided.Tours), always 
 ```bash
 cd RC.Guided.Tours
 ```
+Since we use nested .git folders, never perform a git action related to [RC.Guided.Tours](https://github.com/Sayan4444/RC.Guided.Tours) from outside the folder. 
 
 ## Demo
 
@@ -71,9 +90,10 @@ Video
 
 ### Working Architecture
 
-![image](https://github.com/user-attachments/assets/f2a69f0b-9c40-4bc9-8b32-9eade1717ae6)
+![image](https://github.com/user-attachments/assets/2628ecef-fb33-43bb-9ff4-9e9d1d99e206)
 
 
 - We are using a nested git architecture, where the child repository is git ignored by the parent repository and both have a seperate git history
-- `RC.Guided.Tours` is a standalone package which runs as a workspace in the main repository. 
+- To git ignore, we are not changing the .gitignore file but adding the file `.git/info/exclude` which can be called as a local git extension of the .gitignore file.
+- `RC.Guided.Tours` is a standalone package which runs seperately in the main repository. 
 - The `shell` script runs a `tours` script internally. This dynamically generates the `.tours` folder at the root directory of the folder which is responsible for visualizing the tours. 
