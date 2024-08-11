@@ -8,7 +8,7 @@ export default async function messageSentClient(): Promise<ITours> {
 	const stepsArray: ISteps[] = [
 		{
 			title: "A complete flowchart",
-			description: "### This is the complete flowchart of how a message is sent. We will understand this in detail over the next two tours iterating through multiple steps\n\nClick [here](./RC.Guided.Tours/public/sending_message/sending_message_flowchart.png) to open this is browser.\n\n![image](./RC.Guided.Tours/public/sending_message/sending_message_flowchart.png)"
+			description: "### This is the complete flowchart of how a message is sent. We will understand this in detail over the next two tours iterating through multiple steps\n\nOpen in full-screen mode\n\n>> xdg-open ./RC.Guided.Tours/public/sending_message/sending_message_flowchart.png\n\n![image](./RC.Guided.Tours/public/sending_message/sending_message_flowchart.png)"
 		},
 		{
 			title: 'How a Message is Sent',
