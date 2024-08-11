@@ -1,4 +1,15 @@
 # RC.Guided.Tours
+## Demo
+
+#### Setting up the project
+
+[](https://github.com/user-attachments/assets/e2ecf046-e333-4c6c-a9ba-287ea2331fa1)
+
+
+#### Running the project
+Starting Tours:- Use `ctrl+shift+p` / `cmd+shift+p` to open all commands and then select the `start tour` option
+
+[](https://github.com/user-attachments/assets/44e2be20-43ea-4eb7-941d-e05aeaa8f95a)
 
 ##  Setup Instructions
 - Install [vscode](https://code.visualstudio.com/download), open [Rocket.Chat](https://github.com/RocketChat/Rocket.Chat) project in it and install the [CodeTours](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) extension
@@ -84,15 +95,6 @@ cd RC.Guided.Tours
 ```
 Since we use nested .git folders, never perform a git action related to [RC.Guided.Tours](https://github.com/Sayan4444/RC.Guided.Tours) from outside the folder. 
 
-## Demo
-
-#### Setting up the project
-
-[](https://github.com/user-attachments/assets/e2ecf046-e333-4c6c-a9ba-287ea2331fa1)
-
-
-#### Running the project
-Starting Tours:- Use `ctrl+shift+p` / `cmd+shift+p` to open all commands and then select the `start tour` option
 
 ##  Tours Available
 
@@ -123,3 +125,12 @@ Starting Tours:- Use `ctrl+shift+p` / `cmd+shift+p` to open all commands and the
 - `RC.Guided.Tours` is a standalone package which runs seperately in the main repository. 
 - The `shell` script runs a `tours` script internally. This dynamically generates the `.tours` folder at the root directory of the folder which is responsible for visualizing the tours. 
 - The CodeTour Extension searches for a folder `.tours` and all the tours created are stored inside that folder in JSON format. To know more about the CodeTour extension visit [here](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
+
+## Development Guidelines
+
+- Make changes in the `src` folder and then execute the `tours.sh` in the root to see your changes in effect. This internally calls the `build` `tours` scripts inside RC.Guided.Tours
+```bash
+./tours.sh
+```
+
+- When choosing a `searchString` make sure its `short` and `unique`. Avoid using `function arguments` as searchString.
