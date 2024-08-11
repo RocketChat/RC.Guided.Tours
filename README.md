@@ -86,7 +86,32 @@ Since we use nested .git folders, never perform a git action related to [RC.Guid
 
 ## Demo
 
-Video
+#### Setting up the project
+
+[](https://github.com/user-attachments/assets/e2ecf046-e333-4c6c-a9ba-287ea2331fa1)
+
+
+#### Running the project
+Starting Tours:- Use `ctrl+shift+p` / `cmd+shift+p` to open all commands and then select the `start tour` option
+
+##  Tours Available
+
+<div align="center">
+    
+| **S no.** | Tour |
+|:--------------------|:-------------------|
+| 01 | Rocket.Chat Onboarding |
+| 02 | Understanding Monorepo Structure of Rocket.Chat |
+| 03 | Repository Overview |
+| 04 | How to send a message (Client Side) |
+| 05 | How to send a message (Server Side) |
+| 06 | How to create an endpoint |
+| 07 | How to create a DB model |
+| 08 | How to use DB model |
+| 09 | Services in Rocket.Chat |
+| 10 | How to Add a new Services |
+| 11 | How to create a new Package |
+</div>
 
 ### Working Architecture
 
@@ -97,3 +122,4 @@ Video
 - To git ignore, we are not changing the .gitignore file but adding the file `.git/info/exclude` which can be called as a local git extension of the .gitignore file.
 - `RC.Guided.Tours` is a standalone package which runs seperately in the main repository. 
 - The `shell` script runs a `tours` script internally. This dynamically generates the `.tours` folder at the root directory of the folder which is responsible for visualizing the tours. 
+- The CodeTour Extension searches for a folder `.tours` and all the tours created are stored inside that folder in JSON format. To know more about the CodeTour extension visit [here](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
