@@ -1,43 +1,31 @@
-# RC.Guided.Tours
-## Demo
-
-#### Setting up the project
-
-[](https://github.com/user-attachments/assets/e2ecf046-e333-4c6c-a9ba-287ea2331fa1)
-
-
-#### Running the project
-Starting Tours:- Use `ctrl+shift+p` / `cmd+shift+p` to open all commands and then select the `start tour` option
-
-[](https://github.com/user-attachments/assets/44e2be20-43ea-4eb7-941d-e05aeaa8f95a)
+# RC.Guided.Tours Quick Start 🚀
 
 ##  Setup Instructions
-- Install [vscode](https://code.visualstudio.com/download), open [Rocket.Chat](https://github.com/RocketChat/Rocket.Chat) project in it and install the [CodeTours](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) extension
 
+1. Install Code tour extension [url](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
 
-![](https://github.com/user-attachments/assets/a8357fd8-23a5-4e9e-bc99-be5ae442ed48)
-- Open `.git/info/exclude`
+2. Open `.git/info/exclude` in any text editor or ⬇️
 ```bash
 code .git/info/exclude
 ```
-- Add the following to the end of that file 
+3. Add the following to the end of that file 
 ```bash
 .tours
 RC.Guided.Tours
 tours.sh
 ```
-- Create a file named `tours.sh` at the root directory of Rocket.Chat (at the same level as turbo.json)
+4. Create a new file `tours.sh` at the root directory of Rocket.Chat (at the same level as turbo.json)
 
 ```bash
 touch tours.sh
 ``` 
 
-- Open the file
+5. Open the file in any text editor or ⬇️
 
 ```bash
 code tours.sh
 ```
-- Copy the following contents in it
+6. Paste the following contents in it
 
 ```bash
 
@@ -77,18 +65,21 @@ npm run tours
 
 ```
 
-- Give permissions to run the shell script
+7. Give permissions to run the shell script
 ```bash
 chmod +x tours.sh
 ```
 
-- Run the shell script
+8. Run the shell script
 ```bash
 ./tours.sh
 ```
 
-- You will be asked for repository linked, if you want to just see the tours and not contribute to it, just press `Enter` (It will clone it from https://github.com/RocketChat/RC.Guided.Tours.git)
+9. If you don't want to contribute, just press `Enter` (For contributing see below)
 
+### You are Good to go!! 🔥
+
+## Want to Contribute? 👀
 - If you want to contribute to [RC.Guided.Tours](https://github.com/Sayan4444/RC.Guided.Tours), enter the link of your forked repository. (Example- https://github.com/Sayan4444/RC.Guided.Tours.git)
 
 - To perform any git actions related to [RC.Guided.Tours](https://github.com/Sayan4444/RC.Guided.Tours), always 
@@ -136,3 +127,14 @@ Since we use nested .git folders, never perform a git action related to [RC.Guid
 ```
 
 - When choosing a `searchString` make sure its `short` and `unique`. Avoid using `function arguments` as searchString.
+
+
+#### Setting up the project
+
+[](https://github.com/user-attachments/assets/e2ecf046-e333-4c6c-a9ba-287ea2331fa1)
+
+
+#### Running the project
+Starting Tours:- Use `ctrl+shift+p` / `cmd+shift+p` to open all commands and then select the `start tour` option
+
+[](https://github.com/user-attachments/assets/44e2be20-43ea-4eb7-941d-e05aeaa8f95a)
