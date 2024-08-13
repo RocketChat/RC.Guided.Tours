@@ -80,7 +80,8 @@ chmod +x tours.sh
 ### You are Good to go!! 🔥
 
 ## Want to Contribute? 👀
-- If you want to contribute to [RC.Guided.Tours](https://github.com/Sayan4444/RC.Guided.Tours), enter the link of your forked repository. (Example- https://github.com/Sayan4444/RC.Guided.Tours.git)
+- Fork this repo https://github.com/RocketChat/RC.Guided.Tours
+- Enter the link of your forked repository in terminal, Instead of doing step 9. (Example- https://github.com/Sayan4444/RC.Guided.Tours.git)
 
 - To perform any git actions related to [RC.Guided.Tours](https://github.com/Sayan4444/RC.Guided.Tours), always 
 ```bash
