@@ -109,18 +109,7 @@ Since we use nested .git folders, never perform a git action related to [RC.Guid
 | 11 | How to create a new Package |
 </div>
 
-### Working Architecture
-
-![image](https://github.com/user-attachments/assets/2628ecef-fb33-43bb-9ff4-9e9d1d99e206)
-
-
-- We are using a nested git architecture, where the child repository is git ignored by the parent repository and both have a seperate git history
-- To git ignore, we are not changing the .gitignore file but adding the file `.git/info/exclude` which can be called as a local git extension of the .gitignore file.
-- `RC.Guided.Tours` is a standalone package which runs seperately in the main repository. 
-- The `shell` script runs a `tours` script internally. This dynamically generates the `.tours` folder at the root directory of the folder which is responsible for visualizing the tours. 
-- The CodeTour Extension searches for a folder `.tours` and all the tours created are stored inside that folder in JSON format. To know more about the CodeTour extension visit [here](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
-
-## Development Guidelines
+## Development Guidelines 👨🏽‍💻
 
 - Make changes in the `src` folder and then execute the `tours.sh` in the root to see your changes in effect. This internally calls the `build` `tours` scripts inside RC.Guided.Tours
 ```bash
@@ -130,7 +119,7 @@ Since we use nested .git folders, never perform a git action related to [RC.Guid
 - When choosing a `searchString` make sure its `short` and `unique`. Avoid using `function arguments` as searchString.
 
 
-#### Setting up the project
+## Setting up the project live 🔥
 
 [](https://github.com/user-attachments/assets/e2ecf046-e333-4c6c-a9ba-287ea2331fa1)
 
@@ -139,3 +128,16 @@ Since we use nested .git folders, never perform a git action related to [RC.Guid
 Starting Tours:- Use `ctrl+shift+p` / `cmd+shift+p` to open all commands and then select the `start tour` option
 
 [](https://github.com/user-attachments/assets/44e2be20-43ea-4eb7-941d-e05aeaa8f95a)
+
+
+
+## Working Architecture 👀
+
+![image](https://github.com/user-attachments/assets/2628ecef-fb33-43bb-9ff4-9e9d1d99e206)
+
+
+- We are using a nested git architecture, where the child repository is git ignored by the parent repository and both have a seperate git history
+- To git ignore, we are not changing the .gitignore file but adding the file `.git/info/exclude` which can be called as a local git extension of the .gitignore file.
+- `RC.Guided.Tours` is a standalone package which runs seperately in the main repository. 
+- The `shell` script runs a `tours` script internally. This dynamically generates the `.tours` folder at the root directory of the folder which is responsible for visualizing the tours. 
+- The CodeTour Extension searches for a folder `.tours` and all the tours created are stored inside that folder in JSON format. To know more about the CodeTour extension visit [here](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
