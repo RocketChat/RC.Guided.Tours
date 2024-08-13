@@ -4,31 +4,8 @@
 
 1. Install Code tour extension [url](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
 
-2. Open `.git/info/exclude` in any text editor or ⬇️
+2. Run the following script in the terminal
 ```bash
-code .git/info/exclude
-```
-3. Add the following to the end of that file 
-```bash
-.tours
-RC.Guided.Tours
-tours.sh
-```
-4. Create a new file `tours.sh` at the root directory of Rocket.Chat (at the same level as turbo.json)
-
-```bash
-touch tours.sh
-``` 
-
-5. Open the file in any text editor or ⬇️
-
-```bash
-code tours.sh
-```
-6. Paste the following contents in it
-
-```bash
-
 #!/bin/bash
 
 node_version=$(node -v)
@@ -42,7 +19,8 @@ if [ ! -f ./turbo.json ]; then
   exit 1
 fi
 
-if [ ! -d ./RC.Guided.Tours ]; then
+rm -rf RC.Guided.Tours .tours
+echo -e "\n.tours\nRC.Guided.Tours\ntours.sh" >> .git/info/exclude
 
 printf "Enter repository link:\n"
 read repolink
@@ -52,30 +30,13 @@ if [ -z "$repolink" ]; then
   echo "Using default repository link: ${repolink}\n"
 fi
 
-  git clone ${repolink}
-fi
+git clone ${repolink}
 cd RC.Guided.Tours
-
-if [ ! -d ./node_modules ]; then
-    npm install
-fi
-
-npm run build
-npm run tours
-
+npm install
+npm run dev
 ```
 
-7. Give permissions to run the shell script
-```bash
-chmod +x tours.sh
-```
-
-8. Run the shell script
-```bash
-./tours.sh
-```
-
-9. If you don't want to contribute, just press `Enter` (For contributing see below)
+3. If you don't want to contribute, just press `Enter` (For contributing see below)
 
 ### You are Good to go!! 🔥
 
@@ -111,18 +72,13 @@ Since we use nested .git folders, never perform a git action related to [RC.Guid
 
 ## Development Guidelines 👨🏽‍💻
 
-- Make changes in the `src` folder and then execute the `tours.sh` in the root to see your changes in effect. This internally calls the `build` `tours` scripts inside RC.Guided.Tours
+- Make changes in the `src` folder and then execute 
 ```bash
-./tours.sh
+npm run dev
 ```
+to see your changes in effect. This internally calls the `build` `tours` scripts inside RC.Guided.Tours
 
 - When choosing a `searchString` make sure its `short` and `unique`. Avoid using `function arguments` as searchString.
-
-
-## Setting up the project live 🔥
-
-[](https://github.com/user-attachments/assets/e2ecf046-e333-4c6c-a9ba-287ea2331fa1)
-
 
 #### Running the project
 Starting Tours:- Use `ctrl+shift+p` / `cmd+shift+p` to open all commands and then select the `start tour` option
