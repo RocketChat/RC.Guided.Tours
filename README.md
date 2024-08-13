@@ -11,11 +11,13 @@
 node_version=$(node -v)
 if [[ $node_version != v14* ]]; then
   echo "Use node.js version 14.x.x"
+  read -p "Enter any key to exit..."
   exit 1
 fi
 
 if [ ! -f ./turbo.json ]; then
   echo "Create this file at the same level as turbo.json"
+  read -p "Enter any key to exit..."
   exit 1
 fi
 
