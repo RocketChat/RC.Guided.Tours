@@ -1,30 +1,39 @@
-# RC.Guided.Tours Quick Start 🚀
+# RC.Guided.Tours for Rocket.Chat
+
+ RC.Guided.Tours aims to provide a smooth on-boarding process of new contributors to Rocket.Chat codebase. We use VsCode extension `CodeTour` to explain the most crucial parts of the codebase so that new contrubutors can start contributing as quickly as possible. methods.
+
+
+# Quick Start 🚀
+## Prerequisites
+- You need a Rocket.Chat Server [Setup](https://developer.rocket.chat/v1/docs/server-environment-setup)
+
+- Install the [CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) extension
+
 
 ##  Setup Instructions
 
-1. Install Code tour extension [url](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
+`cd Rocket.Chat` and use the below script (Use nodejs 14)
 
-2. Run the following script in the terminal
 ```bash
-#!/bin/bash
-
 node_version=$(node -v)
 if [[ $node_version != v14* ]]; then
   echo "Use node.js version 14.x.x"
-  read -p "Enter any key to exit..."
+  read -n1 -r -p "Press any key to exit..."
+  echo
   exit 1
 fi
 
 if [ ! -f ./turbo.json ]; then
   echo "Create this file at the same level as turbo.json"
-  read -p "Enter any key to exit..."
+  read -n1 -r -p "Press any key to exit..."
+  echo
   exit 1
 fi
 
 rm -rf RC.Guided.Tours .tours
 echo -e "\n.tours\nRC.Guided.Tours\ntours.sh" >> .git/info/exclude
 
-printf "Enter repository link:\n"
+echo "Enter repository link"
 read repolink
 
 if [ -z "$repolink" ]; then
@@ -44,7 +53,7 @@ npm run dev
 
 ## Want to Contribute? 👀
 - Fork this repo https://github.com/RocketChat/RC.Guided.Tours
-- Enter the link of your forked repository in terminal, Instead of doing step 9. (Example- https://github.com/Sayan4444/RC.Guided.Tours.git)
+- Enter the link of your forked repository in terminal, Instead of doing step 3. (Example- https://github.com/Sayan4444/RC.Guided.Tours.git)
 
 - To perform any git actions related to [RC.Guided.Tours](https://github.com/Sayan4444/RC.Guided.Tours), always 
 ```bash
