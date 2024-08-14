@@ -27,7 +27,7 @@ if [ ! -f ./turbo.json ]; then
 fi
 
 rm -rf RC.Guided.Tours .tours
-echo -e "\n.tours\nRC.Guided.Tours\ntours.sh" >> .git/info/exclude
+echo -e "\n.tours\nRC.Guided.Tours" >> .git/info/exclude
 
 echo "Enter repository link"
 read repolink
