@@ -1,18 +1,14 @@
 # RC.Guided.Tours for Rocket.Chat
 
- RC.Guided.Tours aims to provide a smooth on-boarding process of new contributors to Rocket.Chat codebase. We use VsCode extension `CodeTour` to explain the most crucial parts of the codebase so that new contrubutors can start contributing as quickly as possible. methods.
+ RC.Guided.Tours aims to provide a smooth on-boarding process of new contributors to Rocket.Chat codebase. We use VsCode extension `CodeTour` to explain the most crucial parts of the codebase so that new contributors can start contributing as quickly as possible. methods.
 
 
 # Quick Start 🚀
-## Prerequisites
-- You need a Rocket.Chat Server [Setup](https://developer.rocket.chat/v1/docs/server-environment-setup)
+1. You need a Rocket.Chat Server [Setup](https://developer.rocket.chat/v1/docs/server-environment-setup)
 
-- Install the [CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) extension
+2. Install the [CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) extension in VsCode
 
-
-##  Setup Instructions
-
-`cd Rocket.Chat` and use the below script (Use nodejs 14)
+3. `cd Rocket.Chat` and paste the below script in the terminal (Use nodejs 14)
 
 ```bash
 node_version=$(node -v)
@@ -47,13 +43,13 @@ npm install
 npm run dev
 ```
 
-3. If you don't want to contribute, just press `Enter` (For contributing see below)
+4. If you don't want to contribute, just press `Enter` (For contributing see below)
 
 ### You are Good to go!! 🔥
 
 ## Want to Contribute? 👀
 - Fork this repo https://github.com/RocketChat/RC.Guided.Tours
-- Enter the link of your forked repository in terminal, Instead of doing step 3. (Example- https://github.com/Sayan4444/RC.Guided.Tours.git)
+- Enter the link of your forked repository in terminal, Instead of doing step 4. (Example- https://github.com/Sayan4444/RC.Guided.Tours.git)
 
 - To perform any git actions related to [RC.Guided.Tours](https://github.com/Sayan4444/RC.Guided.Tours), always 
 ```bash
