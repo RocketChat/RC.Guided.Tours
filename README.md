@@ -95,8 +95,7 @@ Starting Tours:- Use `ctrl+shift+p` / `cmd+shift+p` to open all commands and the
 
 
 ## Working Architecture 👀
-
-![image](https://github.com/user-attachments/assets/2628ecef-fb33-43bb-9ff4-9e9d1d99e206)
+![image](https://github.com/user-attachments/assets/5834ab00-a782-423c-a16f-d1ee720c3371)
 
 
 - We are using a nested git architecture, where the child repository is git ignored by the parent repository and both have a seperate git history
