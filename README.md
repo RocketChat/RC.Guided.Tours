@@ -4,7 +4,7 @@
 
 
 # Quick Start 🚀
-1. You need a Rocket.Chat Server [Setup](https://developer.rocket.chat/v1/docs/server-environment-setup)
+1. You need a Rocket.Chat Server [Setup](https://developer.rocket.chat/v1/docs/server-environment-setup) (You dont need a running server)
 
 2. Install the [CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) extension in VsCode
 
@@ -104,3 +104,13 @@ Starting Tours:- Use `ctrl+shift+p` / `cmd+shift+p` to open all commands and the
 - `RC.Guided.Tours` is a standalone package which runs seperately in the main repository. 
 - The `shell` script runs a `tours` script internally. This dynamically generates the `.tours` folder at the root directory of the folder which is responsible for visualizing the tours. 
 - The CodeTour Extension searches for a folder `.tours` and all the tours created are stored inside that folder in JSON format. To know more about the CodeTour extension visit [here](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
+
+## Feedback
+Please provide your honest feedback by joining this [channel](https://open.rocket.chat/channel/RC-Guided-Tours). You may write about these points
+
+- Did this help you to understand the codebase?
+- Were the examples and explainations easy to follow?
+- Any further improvements or suggestions?
+- Anything else you want to share with us
+
+While setting up the project if you get an error `Search string not found` report this issue immediately in the above channel.
