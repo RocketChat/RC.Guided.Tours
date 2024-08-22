@@ -8,39 +8,10 @@
 
 2. Install the [CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) extension in VsCode
 
-3. `cd Rocket.Chat` and paste the below script in the terminal (Use nodejs 14)
+3. `cd Rocket.Chat` and execute (Use nodejs 14)
 
 ```bash
-node_version=$(node -v)
-if [[ $node_version != v14* ]]; then
-  echo "Use node.js version 14.x.x"
-  read -n1 -r -p "Press any key to exit..."
-  echo
-  exit 1
-fi
-
-if [ ! -f ./turbo.json ]; then
-  echo "Create this file at the same level as turbo.json"
-  read -n1 -r -p "Press any key to exit..."
-  echo
-  exit 1
-fi
-
-rm -rf RC.Guided.Tours .tours
-echo -e "\n.tours\nRC.Guided.Tours" >> .git/info/exclude
-
-echo "Enter repository link"
-read repolink
-
-if [ -z "$repolink" ]; then
-  repolink=https://github.com/RocketChat/RC.Guided.Tours.git
-  echo "Using default repository link: ${repolink}\n"
-fi
-
-git clone ${repolink}
-cd RC.Guided.Tours
-npm install
-npm run dev
+curl -s https://raw.githubusercontent.com/RocketChat/RC.Guided.Tours/main/setup.sh | bash
 ```
 
 4. If you don't want to contribute, just press `Enter` (For contributing see below)
