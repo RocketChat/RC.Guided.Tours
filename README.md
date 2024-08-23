@@ -4,43 +4,14 @@
 
 
 # Quick Start 🚀
-1. You need a Rocket.Chat Server [Setup](https://developer.rocket.chat/v1/docs/server-environment-setup)
+1. You need a Rocket.Chat Server [Setup](https://developer.rocket.chat/v1/docs/server-environment-setup) (You dont need a running server)
 
 2. Install the [CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) extension in VsCode
 
-3. `cd Rocket.Chat` and paste the below script in the terminal (Use nodejs 14)
+3. `cd Rocket.Chat` and execute (Use nodejs 14)
 
 ```bash
-node_version=$(node -v)
-if [[ $node_version != v14* ]]; then
-  echo "Use node.js version 14.x.x"
-  read -n1 -r -p "Press any key to exit..."
-  echo
-  exit 1
-fi
-
-if [ ! -f ./turbo.json ]; then
-  echo "Create this file at the same level as turbo.json"
-  read -n1 -r -p "Press any key to exit..."
-  echo
-  exit 1
-fi
-
-rm -rf RC.Guided.Tours .tours
-echo -e "\n.tours\nRC.Guided.Tours" >> .git/info/exclude
-
-echo "Enter repository link"
-read repolink
-
-if [ -z "$repolink" ]; then
-  repolink=https://github.com/RocketChat/RC.Guided.Tours.git
-  echo "Using default repository link: ${repolink}\n"
-fi
-
-git clone ${repolink}
-cd RC.Guided.Tours
-npm install
-npm run dev
+curl -s https://raw.githubusercontent.com/RocketChat/RC.Guided.Tours/main/setup.sh | bash
 ```
 
 4. If you don't want to contribute, just press `Enter` (For contributing see below)
@@ -95,8 +66,7 @@ Starting Tours:- Use `ctrl+shift+p` / `cmd+shift+p` to open all commands and the
 
 
 ## Working Architecture 👀
-
-![image](https://github.com/user-attachments/assets/2628ecef-fb33-43bb-9ff4-9e9d1d99e206)
+![image](https://github.com/user-attachments/assets/5834ab00-a782-423c-a16f-d1ee720c3371)
 
 
 - We are using a nested git architecture, where the child repository is git ignored by the parent repository and both have a seperate git history
@@ -104,3 +74,13 @@ Starting Tours:- Use `ctrl+shift+p` / `cmd+shift+p` to open all commands and the
 - `RC.Guided.Tours` is a standalone package which runs seperately in the main repository. 
 - The `shell` script runs a `tours` script internally. This dynamically generates the `.tours` folder at the root directory of the folder which is responsible for visualizing the tours. 
 - The CodeTour Extension searches for a folder `.tours` and all the tours created are stored inside that folder in JSON format. To know more about the CodeTour extension visit [here](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
+
+## Feedback
+Please provide your honest feedback by joining this [channel](https://open.rocket.chat/channel/RC-Guided-Tours). You may write about these points
+
+- Did this help you to understand the codebase?
+- Were the examples and explainations easy to follow?
+- Any further improvements or suggestions?
+- Anything else you want to share with us
+
+While setting up the project if you get an error `Search string not found` report this issue immediately in the above channel.
