@@ -16,6 +16,9 @@ curl -s https://raw.githubusercontent.com/RocketChat/RC.Guided.Tours/main/setup.
 
 4. If you don't want to contribute, just press `Enter` (For contributing see below)
 
+https://github.com/user-attachments/assets/fe8ad250-7a72-40ee-85c2-f7ae6b06b68e
+
+
 ### You are Good to go!! 🔥
 
 ## Want to Contribute? 👀
