@@ -87,7 +87,8 @@ export default async function createEndPoint(): Promise<ITours> {
 			description: "### Its important to note that both REST API and METEOR end-points are just different entry points to the process of sending a message while they execute the same core functions internally.(MOST OF THE CASES)\n\nThis is evident as you can see yourself they call the same function **executeSendMessage**.\n\n### REST API\n\n``` javascript\nAPI.v1.addRoute(\n\t'chat.sendMessage',\n\t\t\t.......................................................\n\t\t\tconst sent = await executeSendMessage(this.userId, this.bodyParams.message as Pick<IMessage, 'rid'>, this.bodyParams.previewUrls);\n\t\t\t.......................................................\n```\n\n### METEOR METHOD\n\n``` javascript\nMeteor.methods<ServerMethods>({\n\tasync sendMessage(message, previewUrls) {\n            .......................................................\n\t\t\treturn await executeSendMessage(uid, message, previewUrls);\n            .......................................................\n});\n```"
 		}
 	]
-	const steps = await Promise.all(stepsArray.map(step => createStep(step, tourName))) as ISteps[];
+	let steps = await Promise.all(stepsArray.map(step => createStep(step, tourName))) as ISteps[];
+	steps = steps.filter(step => step !== undefined);
 	return {
 		$schema: 'https://aka.ms/codetour-schema',
 		title: tourName,
