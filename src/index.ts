@@ -13,7 +13,9 @@ async function main() {
 	try {
 		const baseDir = path.resolve(__dirname, '../..');
 		const newDir = path.join(baseDir, '.tours');
+		// '.tours' folder created
 		await fs.mkdir(newDir, { recursive: true });
+		// array containing contents for each tour file
 		const toursObjArray = await Promise.all([
 			rocketchatOnboarding(),
 			understandingMonorepo(),
@@ -35,6 +37,7 @@ async function main() {
 			tour.title = serialNumber + ' - ' + tour.title;
 
 			const newFile = path.join(newDir, fileName);
+			//tour file created and contents are added 
 			await fs.writeFile(newFile, JSON.stringify(tour, null, 2));
 		});
 		console.log('Tours created successfully');

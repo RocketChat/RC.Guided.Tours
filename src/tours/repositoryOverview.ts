@@ -73,7 +73,8 @@ export default async function repositoryOverview(): Promise<ITours> {
 				"### Server Directory\n\n- Server/ Directory is never loaded on the client side, People usually like to call it as backend and in Rocket.chat we use **NodeJs** as backend.\n- Most of the API Endpoints are created here and stored here through Database and in Rocket.chat we use **MongoDB** as Database\n- Any sensitive code that you don’t want served to the client, such as code containing passwords or authentication mechanisms, should be kept in the server/ directory.\n- *There are more Folders/Directories named as Server, Just remember all of them are servers*"
 		},
 	]
-	const steps = await Promise.all(stepsArray.map(step => createStep(step, tourName))) as ISteps[];
+	let steps = await Promise.all(stepsArray.map(step => createStep(step, tourName))) as ISteps[];
+	steps = steps.filter(step => step !== undefined);
 	return {
 		$schema: 'https://aka.ms/codetour-schema',
 		title: tourName,

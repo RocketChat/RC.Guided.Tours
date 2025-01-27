@@ -56,7 +56,8 @@ export default async function understandingMonorepo(): Promise<ITours> {
             description: "## Meteor.js\n\nSince our main project is meteor.js, its important to have a basic understanding how meteor.js works. Its advisable to read the [docs](https://docs.meteor.com/) and to experiment by creating a basic meteor project from scratch.\n\n- Any folder with the name **client** will have client side code and the code is accessable from the browser.\n- Any folder with the name **server** will have server side code and the code will only run on the server."
         }
     ]
-    const steps = await Promise.all(stepsArray.map(step => createStep(step, tourName))) as ISteps[];
+    let steps = await Promise.all(stepsArray.map(step => createStep(step, tourName))) as ISteps[];
+    steps = steps.filter(step => step !== undefined);
     return {
         $schema: 'https://aka.ms/codetour-schema',
         title: tourName,

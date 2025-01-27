@@ -40,7 +40,8 @@ export default async function rocketchatOnboarding(): Promise<ITours> {
 
         },
     ]
-    const steps = await Promise.all(stepsArray.map(step => createStep(step, tourName))) as ISteps[];
+    let steps = await Promise.all(stepsArray.map(step => createStep(step, tourName))) as ISteps[];
+    steps = steps.filter(step => step !== undefined);
     return {
         $schema: 'https://aka.ms/codetour-schema',
         title: tourName,

@@ -44,7 +44,8 @@ export default async function createNewPackage(): Promise<ITours> {
 				'# Another Example of packages.\n\n### Since Rocket chat uses TypeScript it is really very important to have type definitions for type safety, hence all of the types in Rocket chat is described here\n\n### Again being a package it has an similar structure as the previuos one',
 		},
 	]
-	const steps = await Promise.all(stepsArray.map(step => createStep(step, tourName))) as ISteps[];
+	let steps = await Promise.all(stepsArray.map(step => createStep(step, tourName))) as ISteps[];
+	steps = steps.filter(step => step !== undefined);
 	return {
 		$schema: 'https://aka.ms/codetour-schema',
 		title: tourName,

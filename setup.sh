@@ -1,9 +1,3 @@
-node_version=$(node -v)
-if [[ $node_version != v14* ]]; then
-  echo "Use node.js version 14.x.x"
-  exit 1
-fi
-
 if [ ! -f ./turbo.json ]; then
   echo "Create this file at the root directory of Rocket.Chat (same level as turbo.json)"
   exit 1
