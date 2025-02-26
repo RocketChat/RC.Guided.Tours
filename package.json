@@ -5,7 +5,9 @@
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.json",
     "tours": "node dist/index.js",
-    "dev": "npm run build && npm run tours"
+    "updateTours": "node dist/updateTours/index.js",
+    "dev": "npm run build && npm run tours",
+    "update": "npm run build && npm run updateTours"
   },
   "keywords": [],
   "author": "",
